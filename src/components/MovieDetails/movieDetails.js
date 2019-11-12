@@ -39,6 +39,6 @@ class MovieDetails extends React.Component {
 }
 
 MovieDetails.propTypes = {
-    match: PropTypes.objectOf(PropTypes.object).isRequired
+    match: PropTypes.objectOf(PropTypes.any).isRequired
 };
 export default withRouter(MovieDetails);

@@ -16,12 +16,6 @@ const config = {
             }
         ]
     },
-    devServer: {
-        historyApiFallback: true,
-        hot: true,
-        open: true
-    },
-
     plugins: [
         new HtmlWebpackPlugin({
             template: './src/index.html'

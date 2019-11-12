@@ -1,5 +1,5 @@
 import React from 'react';
-import {BrowserRouter as Router, Route} from 'react-router-dom';
+import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 import GlobalStyle from 'Theme';
 import SearchBar from 'Components/SearchBar';
 import MovieDetails from 'Components/MovieDetails';
@@ -7,8 +7,10 @@ import MovieDetails from 'Components/MovieDetails';
 const App = () => (
     <Router>
         <GlobalStyle />
-        <Route exact path="/" component={SearchBar} />
-        <Route path="/movie/:title" component={MovieDetails} />
+        <Switch>
+            <Route path="/movie/:title" component={MovieDetails} />
+            <Route component={SearchBar} />
+        </Switch>
     </Router>
 );
 
