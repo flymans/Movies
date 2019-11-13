@@ -1,3 +1,3 @@
-import MovieList from './movieList';
+import MovieList from './MovieList';
 
 export default MovieList;

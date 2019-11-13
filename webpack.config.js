@@ -26,7 +26,8 @@ const config = {
             Assets: resolve(__dirname, 'src/assets/'),
             Components: resolve(__dirname, 'src/components/'),
             Services: resolve(__dirname, 'src/services/'),
-            Theme: resolve(__dirname, 'src/theme/')
+            Theme: resolve(__dirname, 'src/theme/'),
+            Stores: resolve(__dirname, 'src/stores/')
         }
     }
 };

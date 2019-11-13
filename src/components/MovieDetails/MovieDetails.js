@@ -1,15 +1,13 @@
 import React from 'react';
 import {withRouter} from 'react-router-dom';
 import PropTypes from 'prop-types';
-import {getSingleMovie} from 'Services';
+import {inject, observer} from 'mobx-react';
+
 import Spinner from 'Components/Spinner';
 
+@inject('movies')
+@observer
 class MovieDetails extends React.Component {
-    state = {
-        isFetching: true,
-        movieDetails: null
-    };
-
     componentDidMount() {
         const {
             match: {
@@ -20,18 +18,18 @@ class MovieDetails extends React.Component {
     }
 
     getMovieDescription = async title => {
-        const data = await getSingleMovie(title);
-        this.setState({movieDetails: data, isFetching: false});
+        const {movies} = this.props;
+        await movies.getMovieDetails(title);
     };
 
     render() {
-        const {isFetching, movieDetails} = this.state;
+        const {movies} = this.props;
         return (
             <>
-                {isFetching ? (
+                {movies.isFetching ? (
                     <Spinner />
                 ) : (
-                    <p>{JSON.stringify(movieDetails)}</p>
+                    <p>{JSON.stringify(movies.movieDetails)}</p>
                 )}
             </>
         );
@@ -39,6 +37,7 @@ class MovieDetails extends React.Component {
 }
 
 MovieDetails.propTypes = {
-    match: PropTypes.objectOf(PropTypes.any).isRequired
+    match: PropTypes.objectOf(PropTypes.any).isRequired,
+    movies: PropTypes.objectOf(PropTypes.any).isRequired
 };
 export default withRouter(MovieDetails);
