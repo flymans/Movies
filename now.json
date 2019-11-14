@@ -1,0 +1,7 @@
+{
+    "name": "movies",
+    "alias": "movies-mobx.now.sh",
+    "static": {
+        "rewrites": [{"source": "**", "destination": "/index.html"}]
+    }
+}
