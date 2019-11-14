@@ -18,6 +18,7 @@ const config = {
     },
     plugins: [
         new HtmlWebpackPlugin({
+            filename: '200.html',
             template: './src/index.html'
         })
     ],
